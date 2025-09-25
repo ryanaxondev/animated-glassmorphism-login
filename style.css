@@ -1,0 +1,256 @@
+/* -------------------- Reset -------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* -------------------- Variables -------------------- */
+:root {
+  --primary: #a9442c;
+  --primary-dark: #8f2c24;
+  --primary-light: #b3543a;
+  --text-light: rgba(255, 255, 255, 0.8);
+}
+
+/* -------------------- Utilities -------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -------------------- Layout -------------------- */
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background */
+section .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* Ground */
+.ground-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  z-index: -2;
+}
+
+.ground {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Girl */
+.girl {
+  position: absolute;
+  left: -20%;
+  bottom: 70%;
+  width: clamp(80px, 12vw, 200px);
+  animation: animateGirl 10s linear infinite;
+  will-change: transform;
+  z-index: 10;
+}
+
+/* Trees */
+section .trees {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* -------------------- Auth Wrapper -------------------- */
+.auth-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;
+  z-index: 200;
+}
+
+/* -------------------- Form -------------------- */
+.form-box {
+  display: none;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  animation: fadeInScale 0.4s ease;
+}
+
+.form-box.is-active {
+  display: block;
+}
+
+.form-box h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+/* Inputs */
+.form-box input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--primary-dark);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  appearance: none;
+}
+
+.form-box input::placeholder {
+  color: var(--text-light);
+}
+
+.form-box input:focus {
+  border-color: var(--primary);
+}
+
+/* Button */
+.form-box button {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  cursor: pointer;
+  transition: background 0.3s;
+  appearance: none;
+}
+
+.form-box button:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
+/* Links */
+.form-box .forgot {
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+}
+
+.form-box .forgot a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.form-box .forgot a:hover {
+  text-decoration: underline;
+}
+
+.form-box .signup {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.form-box .signup a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* -------------------- Animations -------------------- */
+@keyframes animateGirl {
+  0%   { transform: translateX(120vw); }
+  50%  { transform: translateX(-120vw); }
+  51%  { transform: translateX(-120vw) rotateY(180deg); }
+  100% { transform: translateX(120vw) rotateY(180deg); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* -------------------- Leaves -------------------- */
+.leaves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.leaf {
+  position: absolute;
+  top: -5%;
+  width: clamp(1px, 0.4vw, 3px);
+  height: auto;
+  opacity: 0;
+}
+
+@keyframes fall-left {
+  0%   { transform: translateX(0) translateY(-5%) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { transform: translateX(-20px) translateY(50vh) rotate(180deg); opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(-40px) translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes fall-right {
+  0%   { transform: translateX(0) translateY(-5%) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { transform: translateX(20px) translateY(50vh) rotate(-180deg); opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(40px) translateY(105vh) rotate(-360deg); opacity: 0; }
+}
+
+.leaf1 { left: 5%;  animation: fall-left 14s linear infinite;  animation-delay: 0s; }
+.leaf2 { left: 18%; animation: fall-right 17s linear infinite; animation-delay: 2s; }
+.leaf3 { left: 32%; animation: fall-left 12s linear infinite;  animation-delay: 4s; }
+.leaf4 { left: 46%; animation: fall-right 19s linear infinite; animation-delay: 6s; }
+.leaf5 { left: 60%; animation: fall-left 15s linear infinite;  animation-delay: 3s; }
+.leaf6 { left: 74%; animation: fall-right 18s linear infinite; animation-delay: 5s; }
+.leaf7 { left: 88%; animation: fall-left 13s linear infinite;  animation-delay: 7s; }
+.leaf8 { left: 96%; animation: fall-right 16s linear infinite; animation-delay: 1s; }
