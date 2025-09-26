@@ -1,4 +1,3 @@
-```md
 # 🌿 Animated Glassmorphism Login Page
 
 A modern **Login / Sign Up UI** built with **Glassmorphism design** and smooth **CSS animations**.  
@@ -32,7 +31,7 @@ This project showcases creative front-end design techniques with falling leaves,
 
 ## 📂 Project Structure
 
-```bash
+```
 .
 ├── index.html       # Main HTML file
 ├── style.css        # Styling and animations
@@ -46,13 +45,13 @@ This project showcases creative front-end design techniques with falling leaves,
 
 1. **Clone the repository**
 
-   ```bash
+   ```
    git clone https://github.com/ryanaxondev/animated-glassmorphism-login.git
    ```
 
 2. **Navigate to the project folder**
 
-   ```bash
+   ```
    cd animated-glassmorphism-login
    ```
 
@@ -85,5 +84,3 @@ You are free to use, modify, and distribute it.
 ---
 
 ⭐ If you like this project, consider giving it a **star** on GitHub!
-
-```
